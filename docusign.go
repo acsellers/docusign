@@ -58,6 +58,17 @@ func (d *DSBool) UnmarshalJSON(b []byte) error {
 	*d = DSBool(b[0] == 0x22 && (b[1] == 0x54 || b[1] == 0x74))
 	return nil
 }
+func (d *DSBool) Set(b bool) {
+	*d = DSBool(b)
+}
+func DSTrue() *DSBool {
+	b := DSBool(true)
+	return &b
+}
+func DSFalse() *DSBool {
+	b := DSBool(false)
+	return &b
+}
 
 // dsResolveURL resolves a relative url.
 // the host parameter determines which docusign server(s) to hit

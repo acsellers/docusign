@@ -98,9 +98,9 @@ type BaseTab struct {
 
 // template related fields
 type BaseTemplateTab struct {
-	RecipientID      string `json:"recipientID,omitempty"`
-	TemplateLocked   DSBool `json:"templateLocked,omitempty"`
-	TemplateRequired DSBool `json:"templaterequired,omitempty"`
+	RecipientID      string  `json:"recipientID,omitempty"`
+	TemplateLocked   *DSBool `json:"templateLocked,omitempty"`
+	TemplateRequired *DSBool `json:"templaterequired,omitempty"`
 }
 
 // Conditional value fields
@@ -111,13 +111,13 @@ type BaseConditionalTab struct {
 
 // Style fields
 type BaseStyleTab struct {
-	Bold      DSBool `json:"bold,omitempty"`
-	Font      string `json:"font,omitempty"`
-	FontColor string `json:"fontColor,omitempty"`
-	FontSize  string `json:"fontSize,omitempty"`
-	Italic    DSBool `json:"italic,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Underline DSBool `json:"underline,omitempty"`
+	Bold      *DSBool `json:"bold,omitempty"`
+	Font      string  `json:"font,omitempty"`
+	FontColor string  `json:"fontColor,omitempty"`
+	FontSize  string  `json:"fontSize,omitempty"`
+	Italic    *DSBool `json:"italic,omitempty"`
+	Name      string  `json:"name,omitempty"`
+	Underline *DSBool `json:"underline,omitempty"`
 }
 
 // Approve button tab
@@ -139,16 +139,16 @@ type CheckboxTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	Selected                        DSBool `json:"selected,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Selected                        *DSBool `json:"selected,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 }
 
 func (c CheckboxTab) NmVal() NmVal {
 	retVal := NmVal{Name: c.TabLabel}
-	if c.Selected {
+	if c.Selected != nil && *c.Selected {
 		retVal.Value = "X"
 	}
 	return retVal
@@ -161,12 +161,12 @@ type CompanyTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize        DSBool `json:"disableAutoSize,omitempty"`
-	Locked                 DSBool `json:"locked"`
-	Required               DSBool `json:"required"`
-	Value                  string `json:"value,omitempty"`
-	Width                  int    `json:"width,omitempty"`
+	ConcealValueOnDocument *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize        *DSBool `json:"disableAutoSize,omitempty"`
+	Locked                 *DSBool `json:"locked"`
+	Required               *DSBool `json:"required"`
+	Value                  string  `json:"value,omitempty"`
+	Width                  int     `json:"width,omitempty"`
 }
 
 func (c CompanyTab) NmVal() NmVal {
@@ -190,16 +190,16 @@ type DateTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          string `json:"height,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          string  `json:"height,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (d DateTab) NmVal() NmVal {
@@ -234,16 +234,16 @@ type EmailTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int    `json:"height,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          int     `json:"height,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (e EmailTab) NmVal() NmVal {
@@ -269,17 +269,17 @@ type FormulaTab struct {
 	BasePosTab
 	BaseStyleTab
 	BaseTemplateTab
-	ConcealValueOnDocument DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize        DSBool `json:"disableAutoSize,omitempty"`
-	Formula                string `json:"formula,omitempty"`
-	Height                 int    `json:"height,omitempty"`
-	IsPaymentAmount        DSBool `json:"isPaymentAmount,omitempty"`
-	Locked                 DSBool `json:"locked"`
-	MergeFieldXml          string `json:"mergeFieldXml,omitempty"`
-	Required               DSBool `json:"required"`
-	RoundDecimalPlaces     string `json:"roundDecimalPlaces,omitempty"`
-	Value                  string `json:"value,omitempty"`
-	Width                  int    `json:"width,omitempty"`
+	ConcealValueOnDocument *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize        *DSBool `json:"disableAutoSize,omitempty"`
+	Formula                string  `json:"formula,omitempty"`
+	Height                 int     `json:"height,omitempty"`
+	IsPaymentAmount        *DSBool `json:"isPaymentAmount,omitempty"`
+	Locked                 *DSBool `json:"locked"`
+	MergeFieldXml          string  `json:"mergeFieldXml,omitempty"`
+	Required               *DSBool `json:"required"`
+	RoundDecimalPlaces     string  `json:"roundDecimalPlaces,omitempty"`
+	Value                  string  `json:"value,omitempty"`
+	Width                  int     `json:"width,omitempty"`
 }
 
 func (f FormulaTab) NmVal() NmVal {
@@ -300,7 +300,7 @@ type InitialHereTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Optional   DSBool  `json:"optional,omitempty"`
+	Optional   *DSBool `json:"optional,omitempty"`
 	ScaleValue float64 `json:"scaleValue,omitempty"`
 }
 
@@ -313,9 +313,9 @@ type LastNameTab struct {
 }
 
 type ListItem struct {
-	Selected DSBool `json:"selected,omitempty"`
-	Text     string `json:"text,omitempty"`
-	Value    string `json:"value,omitempty"`
+	Selected *DSBool `json:"selected,omitempty"`
+	Text     string  `json:"text,omitempty"`
+	Value    string  `json:"value,omitempty"`
 }
 
 type ListTab struct {
@@ -325,12 +325,12 @@ type ListTab struct {
 	BaseTemplateTab
 	BaseConditionalTab
 	ListItems                       []ListItem `json:"listItems,omitempty"`
-	Locked                          DSBool     `json:"locked"`
+	Locked                          *DSBool    `json:"locked"`
 	MergeFieldXml                   string     `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool     `json:"required"`
-	RequireInitialOnSharedTabChange DSBool     `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  DSBool     `json:"senderRequired,omitempty,omitempty"`
-	Shared                          DSBool     `json:"shared,omitempty"`
+	Required                        *DSBool    `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool    `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool    `json:"senderRequired,omitempty,omitempty"`
+	Shared                          *DSBool    `json:"shared,omitempty"`
 	Value                           string     `json:"value,omitempty"`
 	Width                           int        `json:"width,omitempty"`
 }
@@ -338,7 +338,7 @@ type ListTab struct {
 func (l ListTab) NmVal() NmVal {
 	retVal := make([]string, 0)
 	for _, li := range l.ListItems {
-		if li.Selected {
+		if li.Selected != nil && *li.Selected {
 			retVal = append(retVal, li.Text)
 		}
 	}
@@ -351,10 +351,10 @@ type NoteTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Height int    `json:"height,omitempty"`
-	Shared DSBool `json:"shared,omitempty"`
-	Value  string `json:"value,omitempty"`
-	Width  int    `json:"width,omitempty"`
+	Height int     `json:"height,omitempty"`
+	Shared *DSBool `json:"shared,omitempty"`
+	Value  string  `json:"value,omitempty"`
+	Width  int     `json:"width,omitempty"`
 }
 
 func (n NoteTab) NmVal() NmVal {
@@ -367,16 +367,16 @@ type NumberTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int    `json:"height,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          int     `json:"height,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (n NumberTab) NmVal() NmVal {
@@ -385,10 +385,10 @@ func (n NumberTab) NmVal() NmVal {
 
 type Radio struct {
 	BasePosTab
-	Locked   DSBool `json:"locked"`
-	Required DSBool `json:"required"`
-	Selected DSBool `json:"selected,omitempty"`
-	Value    string `json:"value,omitempty"`
+	Locked   *DSBool `json:"locked"`
+	Required *DSBool `json:"required"`
+	Selected *DSBool `json:"selected,omitempty"`
+	Value    string  `json:"value,omitempty"`
 }
 
 type RadioGroupTab struct {
@@ -398,16 +398,16 @@ type RadioGroupTab struct {
 	GroupName                       string  `json:"groupName,omitempty"`
 	Radios                          []Radio `json:"radios,omitempty"`
 	RecipientID                     string  `json:"recipientID,omitempty"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
-	TemplateLocked                  DSBool  `json:"templateLocked,omitempty"`
-	TemplateRequired                DSBool  `json:"templaterequired"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	TemplateLocked                  *DSBool `json:"templateLocked,omitempty"`
+	TemplateRequired                *DSBool `json:"templaterequired"`
 }
 
 func (rg RadioGroupTab) NmVal() NmVal {
 	retVal := NmVal{Name: rg.GroupName}
 	for _, r := range rg.Radios {
-		if r.Selected {
+		if r.Selected != nil && *r.Selected {
 			retVal.Value = r.Value
 			break
 		}
@@ -420,8 +420,8 @@ type SignerAttachmentTab struct {
 	BasePosTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Optional DSBool `json:"optional,omitempty"`
-	//Required DSBool `json:"required"`
+	Optional *DSBool `json:"optional,omitempty"`
+	//Required *DSBool `json:"required"`
 }
 
 type SignHereTab struct {
@@ -430,7 +430,7 @@ type SignHereTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Optional   DSBool  `json:"optional,omitempty"`
+	Optional   *DSBool `json:"optional,omitempty"`
 	ScaleValue float64 `json:"scaleValue,omitempty"`
 }
 
@@ -440,16 +440,16 @@ type SsnTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int    `json:"height,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          int     `json:"height,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (s SsnTab) NmVal() NmVal {
@@ -462,20 +462,20 @@ type TextTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int    `json:"height,omitempty"`
-	IsPaymentAmount                 DSBool `json:"isPaymentAmount,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  DSBool `json:"senderRequired,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	ValidationMessage               string `json:"validationMessage,omitempty"`
-	ValidationPattern               string `json:"validationPattern,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          int     `json:"height,omitempty"`
+	IsPaymentAmount                 *DSBool `json:"isPaymentAmount,omitempty"`
+	Locked                          *DSBool `json:"locked,omitempty"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool `json:"senderRequired,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	ValidationMessage               string  `json:"validationMessage,omitempty"`
+	ValidationPattern               string  `json:"validationPattern,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (t TextTab) NmVal() NmVal {
@@ -488,19 +488,19 @@ type TitleTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int    `json:"height,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  DSBool `json:"senderRequired,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	ValidationMessage               string `json:"validationMessage,omitempty"`
-	ValidationPattern               string `json:"validationPattern,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          int     `json:"height,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool `json:"senderRequired,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	ValidationMessage               string  `json:"validationMessage,omitempty"`
+	ValidationPattern               string  `json:"validationPattern,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (t TitleTab) NmVal() NmVal {
@@ -513,16 +513,16 @@ type ZipTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int    `json:"height,omitempty"`
-	Locked                          DSBool `json:"locked"`
-	MergeFieldXml                   string `json:"mergeFieldXml,omitempty"`
-	Required                        DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool `json:"shared,omitempty"`
-	Value                           string `json:"value,omitempty"`
-	Width                           int    `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
+	Height                          int     `json:"height,omitempty"`
+	Locked                          *DSBool `json:"locked"`
+	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool `json:"required"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	Value                           string  `json:"value,omitempty"`
+	Width                           int     `json:"width,omitempty"`
 }
 
 func (z ZipTab) NmVal() NmVal {

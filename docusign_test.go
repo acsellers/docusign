@@ -183,7 +183,7 @@ func TestCalls(t *testing.T) {
 				BaseTemplateTab: BaseTemplateTab{
 					RecipientID: "1",
 				},
-				Optional: true,
+				Optional: DSTrue(),
 			},
 		},
 		TextTabs: []TextTab{
@@ -232,17 +232,17 @@ func TestCalls(t *testing.T) {
 	}
 	for i, rd := range mTabs.RadioGroupTabs[0].Radios {
 		if rd.Value == "val2" {
-			mTabs.RadioGroupTabs[0].Radios[i].Selected = true
+			mTabs.RadioGroupTabs[0].Radios[i].Selected = DSTrue()
 		} else {
-			mTabs.RadioGroupTabs[0].Radios[i].Selected = false
+			mTabs.RadioGroupTabs[0].Radios[i].Selected = DSFalse()
 
 		}
 	}
 
 	for i, li := range mTabs.ListTabs[0].ListItems {
-		xval := DSBool(false)
+		xval := DSFalse()
 		if li.Value == "Y" {
-			xval = true
+			xval = DSTrue()
 		}
 		mTabs.ListTabs[0].ListItems[i].Selected = xval
 	}
@@ -510,7 +510,7 @@ func testEnvelopePayload(userName string) *Envelope {
 									BaseTemplateTab: BaseTemplateTab{
 										RecipientID: "2",
 									},
-									Selected: true,
+									Selected: DSTrue(),
 								},
 							},
 							RadioGroupTabs: []RadioGroupTab{
@@ -527,7 +527,7 @@ func testEnvelopePayload(userName string) *Envelope {
 												AnchorUnits:   "pixels",
 												PageNumber:    "1",
 											},
-											Selected: false,
+											Selected: DSFalse(),
 											Value:    "val1",
 										},
 										Radio{
@@ -538,7 +538,7 @@ func testEnvelopePayload(userName string) *Envelope {
 												AnchorUnits:   "pixels",
 												PageNumber:    "1",
 											},
-											Selected: true,
+											Selected: DSTrue(),
 											Value:    "val2",
 										},
 										Radio{
@@ -549,7 +549,7 @@ func testEnvelopePayload(userName string) *Envelope {
 												AnchorUnits:   "pixels",
 												PageNumber:    "1",
 											},
-											Selected: false,
+											Selected: DSFalse(),
 											Value:    "val3",
 										},
 									},
@@ -574,17 +574,17 @@ func testEnvelopePayload(userName string) *Envelope {
 									//Value: "X",
 									ListItems: []ListItem{
 										ListItem{
-											Selected: true,
+											Selected: DSTrue(),
 											Text:     "X Val",
 											Value:    "X",
 										},
 										ListItem{
-											Selected: false,
+											Selected: DSFalse(),
 											Text:     "Y Val",
 											Value:    "Y",
 										},
 										ListItem{
-											Selected: false,
+											Selected: DSFalse(),
 											Text:     "Z Val",
 											Value:    "Z",
 										},
