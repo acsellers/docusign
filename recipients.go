@@ -111,7 +111,7 @@ type SmsAuthentication struct {
 type Recipient struct {
 	Name                                  string               `json:"name,omitempty"`
 	AccessCode                            string               `json:"accessCode,omitempty"`
-	AddAccessCodeToEmail                  DSBool               `json:"addAccessCodeToEmail,omitempty"`
+	AddAccessCodeToEmail                  *DSBool              `json:"addAccessCodeToEmail,omitempty"`
 	ClientUserId                          string               `json:"clientUserId,omitempty"`
 	EmbeddedRecipientStartURL             string               `json:"embeddedRecipientStartURL,omitempty"`
 	CustomFields                          string               `json:"customFields,omitempty"`
@@ -119,21 +119,21 @@ type Recipient struct {
 	ExcludedDocuments                     string               `json:"excludedDocuments,omitempty"`
 	IdCheckConfigurationName              string               `json:"idCheckConfigurationName,omitempty"`
 	IDCheckInformationInput               string               `json:"iDCheckInformationInput,omitempty"`
-	InheritEmailNotificationConfiguration DSBool               `json:"inheritEmailNotificationConfiguration,omitempty"`
+	InheritEmailNotificationConfiguration *DSBool              `json:"inheritEmailNotificationConfiguration,omitempty"`
 	Note                                  string               `json:"note,omitempty"`
 	PhoneAuthentication                   *PhoneAuthentication `json:"phoneAuthentication,omitempty"`
 	RecipientAttachments                  *RecipientAttachment `json:"recipientAttachment,omitempty"`
 	RecipientCaptiveInfo                  string               `json:"recipientCaptiveInfo,omitempty"`
 	RecipientId                           string               `json:"recipientId,omitempty"`
-	RequireIdLookup                       DSBool               `json:"requireIdLookup,omitempty"`
+	RequireIdLookup                       *DSBool              `json:"requireIdLookup,omitempty"`
 	RoleName                              string               `json:"roleName,omitempty"`
 	RoutingOrder                          string               `json:"routingOrder,omitempty"`
 	SamlAuthentication                    *SamlAuthentication  `json:"samlAuthentication,omitempty"`
 	SmsAuthentication                     *SmsAuthentication   `json:"smsAuthentication,omitempty"`
-	SocialAuthentications                 DSBool               `json:"socialAuthentications,omitempty"`
-	TemplateAccessCodeRequired            DSBool               `json:"templateAccessCodeRequired,omitempty"`
-	TemplateLocked                        DSBool               `json:"templateLocked,omitempty"`
-	TemplateRequired                      DSBool               `json:"templateRequired,omitempty"`
+	SocialAuthentications                 *DSBool              `json:"socialAuthentications,omitempty"`
+	TemplateAccessCodeRequired            *DSBool              `json:"templateAccessCodeRequired,omitempty"`
+	TemplateLocked                        *DSBool              `json:"templateLocked,omitempty"`
+	TemplateRequired                      *DSBool              `json:"templateRequired,omitempty"`
 	ErrorDetails                          *ResponseError       `json:"errorDetails,omitempty"`
 }
 
@@ -148,8 +148,8 @@ type EmailRecipient struct {
 // https://www.docusign.com/p/RESTAPIGuide/Content/REST%20API%20References/Recipients/Agent%20Recipient.htm
 type Agent struct {
 	EmailRecipient
-	CanEditRecipientEmails DSBool `json:"canEditRecipientEmails,omitempty"`
-	CanEditRecipientNames  DSBool `json:"canEditRecipientNames,omitempty"`
+	CanEditRecipientEmails *DSBool `json:"canEditRecipientEmails,omitempty"`
+	CanEditRecipientNames  *DSBool `json:"canEditRecipientNames,omitempty"`
 }
 
 // CarbonCopy receives a copy of the envelope when the envelope reaches the recipient’s order in the process flow and when the envelope is completed.
@@ -164,8 +164,8 @@ type CarbonCopy struct {
 // https://www.docusign.com/p/RESTAPIGuide/Content/REST%20API%20References/Recipients/Certified%20Deliveries%20Recipient.htm
 type CertifiedDelivery struct {
 	EmailRecipient
-	CanEditRecipientEmails DSBool `json:"canEditRecipientEmails,omitempty"`
-	CanEditRecipientNames  DSBool `json:"canEditRecipientNames,omitempty"`
+	CanEditRecipientEmails *DSBool `json:"canEditRecipientEmails,omitempty"`
+	CanEditRecipientNames  *DSBool `json:"canEditRecipientNames,omitempty"`
 }
 
 // Editor can add name and email information, add or change the routing order and set authentication options for the remaining recipients.
@@ -173,8 +173,8 @@ type CertifiedDelivery struct {
 // https://www.docusign.com/p/RESTAPIGuide/Content/REST%20API%20References/Recipients/Editors%20Recipient.htm
 type Editor struct {
 	EmailRecipient
-	CanEditRecipientEmails DSBool `json:"canEditRecipientEmails,omitempty"`
-	CanEditRecipientNames  DSBool `json:"canEditRecipientNames,omitempty"`
+	CanEditRecipientEmails *DSBool `json:"canEditRecipientEmails,omitempty"`
+	CanEditRecipientNames  *DSBool `json:"canEditRecipientNames,omitempty"`
 }
 
 // RestApi Documentation
@@ -192,8 +192,8 @@ type InPersonSigner struct {
 // https://www.docusign.com/p/RESTAPIGuide/Content/REST%20API%20References/Recipients/Intermediaries%20Recipient.htm
 type Intermediary struct {
 	EmailRecipient
-	CanEditRecipientEmails DSBool `json:"canEditRecipientEmails,omitempty"`
-	CanEditRecipientNames  DSBool `json:"canEditRecipientNames,omitempty"`
+	CanEditRecipientEmails *DSBool `json:"canEditRecipientEmails,omitempty"`
+	CanEditRecipientNames  *DSBool `json:"canEditRecipientNames,omitempty"`
 }
 
 // BaseSigner contains common fields of all signer types

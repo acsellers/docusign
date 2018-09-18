@@ -98,9 +98,9 @@ type BaseTab struct {
 
 // template related fields
 type BaseTemplateTab struct {
-	RecipientID      string `json:"recipientID,omitempty"`
-	TemplateLocked   DSBool `json:"templateLocked,omitempty"`
-	TemplateRequired DSBool `json:"templaterequired,omitempty"`
+	RecipientID      string  `json:"recipientID,omitempty"`
+	TemplateLocked   *DSBool `json:"templateLocked,omitempty"`
+	TemplateRequired *DSBool `json:"templaterequired,omitempty"`
 }
 
 // Conditional value fields
@@ -111,13 +111,13 @@ type BaseConditionalTab struct {
 
 // Style fields
 type BaseStyleTab struct {
-	Bold      DSBool `json:"bold,omitempty"`
-	Font      string `json:"font,omitempty"`
-	FontColor string `json:"fontColor,omitempty"`
-	FontSize  string `json:"fontSize,omitempty"`
-	Italic    DSBool `json:"italic,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Underline DSBool `json:"underline,omitempty"`
+	Bold      *DSBool `json:"bold,omitempty"`
+	Font      string  `json:"font,omitempty"`
+	FontColor string  `json:"fontColor,omitempty"`
+	FontSize  string  `json:"fontSize,omitempty"`
+	Italic    *DSBool `json:"italic,omitempty"`
+	Name      string  `json:"name,omitempty"`
+	Underline *DSBool `json:"underline,omitempty"`
 }
 
 // Approve button tab
@@ -141,9 +141,9 @@ type CheckboxTab struct {
 	BaseConditionalTab
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Selected                        DSBool  `json:"selected,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Selected                        *DSBool `json:"selected,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 }
 
 func (c CheckboxTab) NmVal() NmVal {
@@ -161,8 +161,8 @@ type CompanyTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize        DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize        *DSBool `json:"disableAutoSize,omitempty"`
 	Locked                 *DSBool `json:"locked"`
 	Required               *DSBool `json:"required"`
 	Value                  string  `json:"value,omitempty"`
@@ -190,14 +190,14 @@ type DateTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          string  `json:"height,omitempty"`
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	Value                           string  `json:"value,omitempty"`
 	Width                           int     `json:"width,omitempty"`
 }
@@ -234,14 +234,14 @@ type EmailTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          int     `json:"height,omitempty"`
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	Value                           string  `json:"value,omitempty"`
 	Width                           int     `json:"width,omitempty"`
 }
@@ -269,11 +269,11 @@ type FormulaTab struct {
 	BasePosTab
 	BaseStyleTab
 	BaseTemplateTab
-	ConcealValueOnDocument DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize        DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize        *DSBool `json:"disableAutoSize,omitempty"`
 	Formula                string  `json:"formula,omitempty"`
 	Height                 int     `json:"height,omitempty"`
-	IsPaymentAmount        DSBool  `json:"isPaymentAmount,omitempty"`
+	IsPaymentAmount        *DSBool `json:"isPaymentAmount,omitempty"`
 	Locked                 *DSBool `json:"locked"`
 	MergeFieldXml          string  `json:"mergeFieldXml,omitempty"`
 	Required               *DSBool `json:"required"`
@@ -300,7 +300,7 @@ type InitialHereTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Optional   DSBool  `json:"optional,omitempty"`
+	Optional   *DSBool `json:"optional,omitempty"`
 	ScaleValue float64 `json:"scaleValue,omitempty"`
 }
 
@@ -313,9 +313,9 @@ type LastNameTab struct {
 }
 
 type ListItem struct {
-	Selected DSBool `json:"selected,omitempty"`
-	Text     string `json:"text,omitempty"`
-	Value    string `json:"value,omitempty"`
+	Selected *DSBool `json:"selected,omitempty"`
+	Text     string  `json:"text,omitempty"`
+	Value    string  `json:"value,omitempty"`
 }
 
 type ListTab struct {
@@ -328,9 +328,9 @@ type ListTab struct {
 	Locked                          *DSBool    `json:"locked"`
 	MergeFieldXml                   string     `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool    `json:"required"`
-	RequireInitialOnSharedTabChange DSBool     `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  DSBool     `json:"senderRequired,omitempty,omitempty"`
-	Shared                          DSBool     `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool    `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool    `json:"senderRequired,omitempty,omitempty"`
+	Shared                          *DSBool    `json:"shared,omitempty"`
 	Value                           string     `json:"value,omitempty"`
 	Width                           int        `json:"width,omitempty"`
 }
@@ -351,10 +351,10 @@ type NoteTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Height int    `json:"height,omitempty"`
-	Shared DSBool `json:"shared,omitempty"`
-	Value  string `json:"value,omitempty"`
-	Width  int    `json:"width,omitempty"`
+	Height int     `json:"height,omitempty"`
+	Shared *DSBool `json:"shared,omitempty"`
+	Value  string  `json:"value,omitempty"`
+	Width  int     `json:"width,omitempty"`
 }
 
 func (n NoteTab) NmVal() NmVal {
@@ -367,14 +367,14 @@ type NumberTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          int     `json:"height,omitempty"`
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	Value                           string  `json:"value,omitempty"`
 	Width                           int     `json:"width,omitempty"`
 }
@@ -387,7 +387,7 @@ type Radio struct {
 	BasePosTab
 	Locked   *DSBool `json:"locked"`
 	Required *DSBool `json:"required"`
-	Selected DSBool  `json:"selected,omitempty"`
+	Selected *DSBool `json:"selected,omitempty"`
 	Value    string  `json:"value,omitempty"`
 }
 
@@ -398,10 +398,10 @@ type RadioGroupTab struct {
 	GroupName                       string  `json:"groupName,omitempty"`
 	Radios                          []Radio `json:"radios,omitempty"`
 	RecipientID                     string  `json:"recipientID,omitempty"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
-	TemplateLocked                  DSBool  `json:"templateLocked,omitempty"`
-	TemplateRequired                DSBool  `json:"templaterequired"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
+	TemplateLocked                  *DSBool `json:"templateLocked,omitempty"`
+	TemplateRequired                *DSBool `json:"templaterequired"`
 }
 
 func (rg RadioGroupTab) NmVal() NmVal {
@@ -420,7 +420,7 @@ type SignerAttachmentTab struct {
 	BasePosTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Optional DSBool `json:"optional,omitempty"`
+	Optional *DSBool `json:"optional,omitempty"`
 	//Required *DSBool `json:"required"`
 }
 
@@ -430,7 +430,7 @@ type SignHereTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	Optional   DSBool  `json:"optional,omitempty"`
+	Optional   *DSBool `json:"optional,omitempty"`
 	ScaleValue float64 `json:"scaleValue,omitempty"`
 }
 
@@ -440,14 +440,14 @@ type SsnTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          int     `json:"height,omitempty"`
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	Value                           string  `json:"value,omitempty"`
 	Width                           int     `json:"width,omitempty"`
 }
@@ -462,16 +462,16 @@ type TextTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          int     `json:"height,omitempty"`
-	IsPaymentAmount                 DSBool  `json:"isPaymentAmount,omitempty"`
+	IsPaymentAmount                 *DSBool `json:"isPaymentAmount,omitempty"`
 	Locked                          *DSBool `json:"locked,omitempty"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required,omitempty"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  DSBool  `json:"senderRequired,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool `json:"senderRequired,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	ValidationMessage               string  `json:"validationMessage,omitempty"`
 	ValidationPattern               string  `json:"validationPattern,omitempty"`
 	Value                           string  `json:"value,omitempty"`
@@ -488,15 +488,15 @@ type TitleTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          int     `json:"height,omitempty"`
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  DSBool  `json:"senderRequired,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool `json:"senderRequired,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	ValidationMessage               string  `json:"validationMessage,omitempty"`
 	ValidationPattern               string  `json:"validationPattern,omitempty"`
 	Value                           string  `json:"value,omitempty"`
@@ -513,14 +513,14 @@ type ZipTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          DSBool  `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 DSBool  `json:"disableAutoSize,omitempty"`
+	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
 	Height                          int     `json:"height,omitempty"`
 	Locked                          *DSBool `json:"locked"`
 	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
 	Required                        *DSBool `json:"required"`
-	RequireInitialOnSharedTabChange DSBool  `json:"requireInitialOnSharedTabChange,omitempty"`
-	Shared                          DSBool  `json:"shared,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
+	Shared                          *DSBool `json:"shared,omitempty"`
 	Value                           string  `json:"value,omitempty"`
 	Width                           int     `json:"width,omitempty"`
 }
