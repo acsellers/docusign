@@ -45,6 +45,7 @@ type EnvRecipientView struct {
 	AuthenticationInstant time.Time     `json:"authenticationInstant,omitempty"`
 	SecurityDomain        string        `json:"securityDomain,omitempty"`
 	Email                 string        `json:"email,omitempty"`
+	RecipientId           string        `json:"recipientId,omitempty"`
 	UserId                string        `json:"userId,omitempty"`
 	UserName              string        `json:"userName,omitempty"`
 	ReturnUrl             ReturnUrlType `json:"returnUrl,omitempty"`

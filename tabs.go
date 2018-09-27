@@ -5,7 +5,10 @@
 
 package docusign
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 // Tabs describes the data tabs for a recipient
 type Tabs struct {
@@ -462,24 +465,24 @@ type TextTab struct {
 	BaseStyleTab
 	BaseTemplateTab
 	BaseConditionalTab
-	ConcealValueOnDocument          *DSBool `json:"concealValueOnDocument,omitempty"`
-	DisableAutoSize                 *DSBool `json:"disableAutoSize,omitempty"`
-	Height                          int     `json:"height,omitempty"`
-	IsPaymentAmount                 *DSBool `json:"isPaymentAmount,omitempty"`
-	Locked                          *DSBool `json:"locked,omitempty"`
-	MergeFieldXml                   string  `json:"mergeFieldXml,omitempty"`
-	Required                        *DSBool `json:"required,omitempty"`
-	RequireInitialOnSharedTabChange *DSBool `json:"requireInitialOnSharedTabChange,omitempty"`
-	senderRequired                  *DSBool `json:"senderRequired,omitempty"`
-	Shared                          *DSBool `json:"shared,omitempty"`
-	ValidationMessage               string  `json:"validationMessage,omitempty"`
-	ValidationPattern               string  `json:"validationPattern,omitempty"`
-	Value                           string  `json:"value,omitempty"`
-	Width                           int     `json:"width,omitempty"`
+	ConcealValueOnDocument          *DSBool     `json:"concealValueOnDocument,omitempty"`
+	DisableAutoSize                 *DSBool     `json:"disableAutoSize,omitempty"`
+	Height                          int         `json:"height,omitempty"`
+	IsPaymentAmount                 *DSBool     `json:"isPaymentAmount,omitempty"`
+	Locked                          *DSBool     `json:"locked,omitempty"`
+	MergeFieldXml                   string      `json:"mergeFieldXml,omitempty"`
+	Required                        *DSBool     `json:"required,omitempty"`
+	RequireInitialOnSharedTabChange *DSBool     `json:"requireInitialOnSharedTabChange,omitempty"`
+	senderRequired                  *DSBool     `json:"senderRequired,omitempty"`
+	Shared                          *DSBool     `json:"shared,omitempty"`
+	ValidationMessage               string      `json:"validationMessage,omitempty"`
+	ValidationPattern               string      `json:"validationPattern,omitempty"`
+	Value                           interface{} `json:"value,omitempty"`
+	Width                           int         `json:"width,omitempty"`
 }
 
 func (t TextTab) NmVal() NmVal {
-	return NmVal{Name: t.TabLabel, Value: t.Value}
+	return NmVal{Name: t.TabLabel, Value: fmt.Sprint(t.Value)}
 }
 
 type TitleTab struct {

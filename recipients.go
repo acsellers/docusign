@@ -203,6 +203,7 @@ type BaseSigner struct {
 	SignInEachLocation string `json:"signInEachLocation,omitempty"`
 	SignerEmail        string `json:"signerEmail,omitempty"`
 	SignerName         string `json:"signerName,omitempty"`
+	UserId             string `json:"userId,omitempty"`
 	Tabs               *Tabs  `json:"tabs,omitempty"`
 }
 
